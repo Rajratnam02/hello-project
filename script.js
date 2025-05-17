@@ -94,7 +94,7 @@ function you_won(elee,pp,q,risk,ib)
   balancediv.innerHTML=pp+q.value;
 }
 
-function you_lose(cardcard,risk,pp,q,inputamount)
+function you_lose(cardcard,risk,pp,q,inputamount,t)
 {
   for(let i=0;i<25;i++)
   {
@@ -120,7 +120,7 @@ function you_lose(cardcard,risk,pp,q,inputamount)
   else loose_percentage=80;
 
 
-  q.value-=(inputamount*loose_percentage)/100;
+  q.value=t-(inputamount*loose_percentage)/100;
 
   balancediv.innerHTML=pp+q.value;
 }
@@ -155,6 +155,9 @@ chooserisk.forEach(ele0=>{
       
       // YOU HAVE CLICKED ON START
       start.addEventListener("click",async function(){
+
+
+        let t=q.value
         let shuffled_array=await get_shuffle_array()
         console.log(shuffled_array)
         
@@ -181,7 +184,7 @@ chooserisk.forEach(ele0=>{
               }
               else
               {
-                you_lose(cardcard,risk,pp,q,inputamount)
+                you_lose(cardcard,risk,pp,q,inputamount,t)
               }
 
 
