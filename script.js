@@ -157,7 +157,7 @@ chooserisk.forEach(ele0=>{
       start.addEventListener("click",async function(){
 
 
-        let t=q.value
+        const t=q.value
         let shuffled_array=await get_shuffle_array()
         console.log(shuffled_array)
         
