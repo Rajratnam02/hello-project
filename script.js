@@ -71,6 +71,13 @@ start.addEventListener("mouseleave", () => {
 
 stoppii.style.cursor = "pointer";
 
+stoppii.addEventListener("mouseenter",() => {
+  stoppii.className="bg-gradient-to-b from-[#a71d2a] to-[#c03945] text-5xl flex items-center justify-center border-b-black border-solid p-[15px] rounded-[20px]";
+});
+
+stoppii.addEventListener("mouseleave",() => {
+  stoppii.className="bg-gradient-to-b from-[#dc3545] to-[#e4606d] text-5xl flex items-center justify-center border-b-black border-solid p-[15px] rounded-[20px]"
+})
 
 // SHUFFLE FUNCTION
 
@@ -109,7 +116,7 @@ function you_lose(cardcard, risk, pp, q, inputamount, t) {
 
   setTimeout(() => alert("YOU LOSE!!"), 500);
 
-  let loose_percentage = risk == 2 ? 8 : risk == 5 ? 20 : risk == 10 ? 40 : risk == 15 ? 60 : 80;
+  let loose_percentage = risk == 2 ? 8 : risk == 5 ? 25 : risk == 10 ? 60 : risk == 15 ? 75 : 90;
   q.value = t - (inputamount * loose_percentage) / 100;
   balancediv.innerHTML = pp + q.value;
 }
@@ -140,7 +147,7 @@ inputi.addEventListener("input", () => {
           const t = q.value;
           let shuffled_array = await get_shuffle_array();
           console.log(shuffled_array);
-
+          start.innerHTML="RESTART";
           let cardcard = document.querySelectorAll(".cards");
           for (let i = 0; i < 25; i++) {
             cardcard[i].dataset.risk = shuffled_array[i];
